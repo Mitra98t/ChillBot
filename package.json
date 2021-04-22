@@ -1,0 +1,23 @@
+{
+  "name": "chillbot",
+  "version": "1.0.0",
+  "description": "just a nice bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mitra98t/ChillBot.git"
+  },
+  "author": "M98",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mitra98t/ChillBot/issues"
+  },
+  "homepage": "https://github.com/Mitra98t/ChillBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
