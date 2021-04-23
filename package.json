@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Mitra98t/ChillBot#readme",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "@discordjs/opus": "github:discordjs/opus",
+    "discord.js": "^12.5.3",
+    "ffmpeg-static": "^4.3.0"
   }
 }

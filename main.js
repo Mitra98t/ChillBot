@@ -33,6 +33,15 @@ client.on('message', message => {
         case ('join'):
             client.commands.get('join').execute(message, args, discord, client);
             break;
+        case ('stop'):
+            client.commands.get('stop').execute(message, args, discord, client);
+            break;
+        case ('randommute'):
+            client.commands.get('randommute').execute(message, args, discord, client);
+            break;
+        case ('solitudine'):
+            client.commands.get('solitudine').execute(message, args, discord, client);
+            break;
     }
 })
 
