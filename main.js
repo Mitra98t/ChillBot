@@ -42,6 +42,8 @@ client.on('message', message => {
         case ('solitudine'):
             client.commands.get('solitudine').execute(message, args, discord);
             break;
+        case ('scareme'):
+            client.commands.get('scareme').execute(message, args, discord);
     }
 })
 
