@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = {
     name: 'join',
     description: 'I am coming',
-    execute(msg, args, discord, client) {
+    execute(msg, args, discord) {
         let chanToJoin;
         if(msg.mentions.users.first()){
             // console.log(msg.guild.members.cache.get(msg.mentions.users[0].id))

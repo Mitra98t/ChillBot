@@ -31,16 +31,16 @@ client.on('message', message => {
             client.commands.get('ping').execute(message, args, discord);
             break;
         case ('join'):
-            client.commands.get('join').execute(message, args, discord, client);
+            client.commands.get('join').execute(message, args, discord);
             break;
         case ('stop'):
-            client.commands.get('stop').execute(message, args, discord, client);
+            client.commands.get('stop').execute(message, args, discord);
             break;
         case ('randommute'):
-            client.commands.get('randommute').execute(message, args, discord, client);
+            client.commands.get('randommute').execute(message, args, discord);
             break;
         case ('solitudine'):
-            client.commands.get('solitudine').execute(message, args, discord, client);
+            client.commands.get('solitudine').execute(message, args, discord);
             break;
     }
 })
