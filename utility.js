@@ -9,3 +9,7 @@ exports.Utility = {
         return res
     }
 }
+
+exports.Check = {
+    isInVoiceChannel(msg){ return msg.guild.me.voice.channel ? true : false }
+}

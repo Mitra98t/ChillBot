@@ -4,6 +4,15 @@ module.exports = {
     name: "scareme",
     description: "Tu non mi fai paura",
     execute(msg, args, discord){
+        if(Check.isInVoiceChannel(msg)){
+            let embed = new discord.MessageEmbed()
+                .setColor('#'+Math.floor(Math.random()*16777215).toString(16))
+                .setTitle('Hey!')
+                .addField('Gia in uso', 'Sono in uso in un altro canale');
+            msg.channel.send(embed);
+            return null
+        }
+
         let embed = new discord.MessageEmbed()
             .setColor('#A0124C')
             .setTitle('Arrivo...')
