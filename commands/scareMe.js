@@ -1,5 +1,5 @@
 const Utility = require('../utility').Utility
-
+const Check = require('../utility').Check
 module.exports = {
     name: "scareme",
     description: "Tu non mi fai paura",

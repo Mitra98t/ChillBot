@@ -1,4 +1,5 @@
 const ytdl = require('ytdl-core')
+const Check = require('../utility').Check
 
 //TODO: queue system
 module.exports = {
