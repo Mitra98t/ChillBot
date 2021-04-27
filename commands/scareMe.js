@@ -24,7 +24,7 @@ module.exports = {
         if (!chanToJoin) return msg.channel.send(Util.Reply.errorEmbed('Non sei in un canale', 'Non te pozz parlà mo no'))
         chanToJoin.join().then(connection => {
             //Math.floor(Math.random() * (max - min)) + min;
-            let usableFiles = Utility.getCurrentFilenames('./files/scare')
+            let usableFiles = Util.Utility.getCurrentFilenames('./files/scare')
             const dispatcher = connection.play(`./files/scare/${usableFiles[Math.floor(Math.random() * usableFiles.length)]}`);
             dispatcher.on("finish", finish => msg.guild.me.voice.channel.leave());
             //console.log("Successfully connected.");

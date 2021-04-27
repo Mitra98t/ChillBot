@@ -7,7 +7,6 @@ module.exports = {
         }
         else{
             msg.guild.me.voice.channel.leave()
-            return null
         }
     }
 }

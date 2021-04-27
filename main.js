@@ -44,8 +44,10 @@ client.on('message', message => {
             break;
         case ('scareme'):
             client.commands.get('scareme').execute(message, args, discord);
+            break;
         case ('play'):
             client.commands.get('play').execute(message, args, discord);
+            break;
     }
 })
 
