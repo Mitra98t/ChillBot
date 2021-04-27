@@ -1,3 +1,5 @@
+const Util = require('../utility')
+
 module.exports = {
     name: 'solitudine',
     description: 'Ora siete da soli',
@@ -5,10 +7,10 @@ module.exports = {
         const chatToAbuse = msg.member.voice.channel
         if (!chatToAbuse) return msg.channel.send(Util.Reply.sendBaseEmbed('Mmm...', 'Ti è andata bene...'))
 
-        chatToAbuse.members.forEach(mem => {
-            // console.log(mem.user.username)
-            mem.voice.setChannel('833811919655796737')
+        let allChannels = Util.Utility.getChannelIDs(msg)
+
+        chatToAbuse.members.forEach(mem => { 
+            mem.voice.setChannel(allChannels[Math.floor(Math.random()*allChannels.length)].ID)
         });
-        //console.log(chatToAbuse.members)
     }
 }

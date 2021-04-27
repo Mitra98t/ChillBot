@@ -18,22 +18,32 @@ exports.Utility = {
             res.push(file);
         });
         return res
+    },
+    getChannelIDs(msg) {
+        let array = [];
+        let channels = msg.guild.channels.cache;
+        channels.forEach((chan, id) => {
+            if(chan.type == 'voice')
+                array.push({ID: id, name:chan.name})
+        })
+
+        return array;
     }
 }
 
 exports.Check = {
-    isInVoiceChannel(me){ return me.voice.channel ? true : false }
+    isInVoiceChannel(me) { return me.voice.channel ? true : false }
 }
 
 exports.Reply = {
-    errorEmbed(title, description){
+    errorEmbed(title, description) {
         let embed = new discord.MessageEmbed()
             .setColor(red)
             .setTitle(title)
             .setDescription(description)
         return embed
     },
-    sendBaseEmbed(title, description, color){
+    sendBaseEmbed(title, description, color) {
         let hexColorReg = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/gm
         let col = hexColorReg.test(color) ? color : defColor
 
