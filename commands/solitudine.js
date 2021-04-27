@@ -3,7 +3,7 @@ module.exports = {
     description: 'Ora siete da soli',
     execute(msg, args, discord){
         const chatToAbuse = msg.member.voice.channel
-        if (!chatToAbuse) return msg.reply('Ti è andata bene...')
+        if (!chatToAbuse) return msg.channel.send(Util.Reply.sendBaseEmbed('Mmm...', 'Ti è andata bene...'))
 
         chatToAbuse.members.forEach(mem => {
             // console.log(mem.user.username)

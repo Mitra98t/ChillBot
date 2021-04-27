@@ -1,23 +1,15 @@
-const Utility = require('../utility').Utility
-const Check = require('../utility').Check
+const Util = require('../utility')
+
 module.exports = {
     name: "scareme",
     description: "Tu non mi fai paura",
     execute(msg, args, discord){
-        if(Check.isInVoiceChannel(msg)){
-            let embed = new discord.MessageEmbed()
-                .setColor('#'+Math.floor(Math.random()*16777215).toString(16))
-                .setTitle('Hey!')
-                .addField('Gia in uso', 'Sono in uso in un altro canale');
-            msg.channel.send(embed);
+        if(Util.Check.isInVoiceChannel(msg.guild.me)){
+            msg.channel.send(Util.Reply.errorEmbed('Sono già in uso!', 'Sto già riproducendo qualcosa!\nMi servono i miei spazi...'));
             return null
         }
-
-        let embed = new discord.MessageEmbed()
-            .setColor('#A0124C')
-            .setTitle('Arrivo...')
         
-        msg.channel.send(embed);
+        msg.channel.send(Util.Reply.sendBaseEmbed('Arrivo...', 'Devi solo stare tranquillo.'));
         
         let chanToJoin;
         if(msg.mentions.users.first()){
@@ -29,7 +21,7 @@ module.exports = {
             chanToJoin = msg.member.voice.channel
         }
 
-        if (!chanToJoin) return msg.reply('Non te pozz parlà mo no')
+        if (!chanToJoin) return msg.channel.send(Util.Reply.errorEmbed('Non sei in un canale', 'Non te pozz parlà mo no'))
         chanToJoin.join().then(connection => {
             //Math.floor(Math.random() * (max - min)) + min;
             let usableFiles = Utility.getCurrentFilenames('./files/scare')

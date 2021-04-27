@@ -1,3 +1,5 @@
+const Util = require('../utility')
+
 module.exports = {
     name: 'ping',
     description: 'This is a FUCKING PING PONG COMMAND BABY',

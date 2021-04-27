@@ -1,3 +1,5 @@
+const Util = require('../utility')
+
 module.exports = {
     name: 'randommute',
     description: 'Ok... me ne vado',
@@ -5,7 +7,7 @@ module.exports = {
         const chatToAbuse = msg.member.voice.channel
         let muteRole = msg.guild.roles.cache.find(r => r.name === "Silence");
 
-        if (!chatToAbuse) return msg.reply('Ti è andata bene...')
+        if (!chatToAbuse) return msg.channel.send(Util.Reply.sendBaseEmbed('Mmm...', 'Ti è andata bene...'))
 
         chatToAbuse.members.forEach(mem => {
             if (mem.user.username == "luca_valente")

@@ -1,30 +1,21 @@
 const ytdl = require('ytdl-core')
-const Check = require('../utility').Check
+const Util = require('../utility')
 
 //TODO: queue system
 module.exports = {
     name: 'play',
     description: 'Youtube music',
     async execute(msg, args, discord){
-        if(Check.isInVoiceChannel(msg)){
-            let embed = new discord.MessageEmbed()
-                .setColor('#'+Math.floor(Math.random()*16777215).toString(16))
-                .setTitle('Hey!')
-                .addField('Gia in uso', 'Sono in uso in un altro canale');
-            msg.channel.send(embed);
+        if(Util.Check.isInVoiceChannel(msg.guild.me)){
+            msg.channel.send(Util.Reply.errorEmbed('Sono già in uso!', 'Sto già riproducendo qualcosa!\nMi servono i miei spazi...'));
             return null
         }
 
-        let embed = new discord.MessageEmbed()
         const voiceChannel = msg.member.voice.channel
-        if (!voiceChannel) return msg.reply('Non te pozz parlà mo no')
+        if (!voiceChannel) return msg.channel.send(Util.Reply.errorEmbed('Non sei in un canale', 'Non te pozz parlà mo no'))
 
         if(args.length <= 0){
-            embed.setColor('#A0124C')
-                .setTitle('Qualcosa non va!')
-                .setDescription('Devi includere il link del brano da riprodurre');
-
-            msg.channel.send(embed);
+            msg.channel.send(Util.Reply.errorEmbed('Qualcosa non va!', 'Devi includere il link del brano da riprodurre'));
             return null;
         }
         
@@ -35,21 +26,13 @@ module.exports = {
             try{
                 await videoPlayer(msg, song, voiceChannel, embed)
             } catch(e){
-                embed.setColor('#A0124C')
-                    .setTitle('Qualcosa è andato storto!')
-                    .setDescription('Link incluso non valido');
-
-                msg.channel.send(embed);
+                msg.channel.send(Util.Reply.errorEmbed('Qualcosa è andato storto!', 'Link incluso non valido'));
                 console.log(e)
             }
 
         }
         else{
-            embed.setColor('#A0124C')
-                .setTitle('Qualcosa non va!')
-                .setDescription('Link incluso non valido');
-
-            msg.channel.send(embed);
+            msg.channel.send(Util.Reply.errorEmbed('Qualcosa è andato storto!', 'Link incluso non valido'));
             return null;
         }
     }
@@ -58,11 +41,7 @@ module.exports = {
 
 async function videoPlayer(msg, song, channel, embed){
     const stream = ytdl(song.url, { filter: 'audioonly' })
-
-    embed.setColor('#'+Math.floor(Math.random()*16777215).toString(16))
-        .setTitle('Music!')
-        .addField('Riproducendo', song.title);
-    msg.channel.send(embed);
+    msg.channel.send(Util.Reply.sendBaseEmbed('Music', 'Balliamo!', Util.Colors.green).addField('Riproducendo', song.title));
 
     channel.join().then(connection => {
         const dispatcher = connection.play(stream);
