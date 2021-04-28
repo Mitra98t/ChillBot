@@ -1,14 +1,36 @@
 const fs = require('fs');
 const discord = require('discord.js');
+const { send } = require('process');
+
+/* PERMISSIONS */
+const muteMembers = "MUTE_MEMBERS"
+const moveMembers = "MOVE_MEMBERS"
+const viewChannel = "VIEW_CHANNEL"
+const sendMsg = "SEND_MESSAGES"
+const sendTTSMsg = "SEND_TTS_MESSAGES"
+const connectChannel = "CONNECT"
+const speak = "SPEAK"
 
 
-const red = '#FA1444'
+/* COLORS */
 const defColor = '#FA8F40'
+const red = '#FA1444'
 const green = '#6DFA46'
+
 exports.Colors = {
-    red,
     defColor,
+    red,
     green,
+}
+
+exports.Pex = {
+    muteMembers,
+    moveMembers,
+    viewChannel,
+    sendMsg,
+    sendTTSMsg,
+    connectChannel,
+    speak,
 }
 
 exports.Utility = {
@@ -23,8 +45,8 @@ exports.Utility = {
         let array = [];
         let channels = msg.guild.channels.cache;
         channels.forEach((chan, id) => {
-            if(chan.type == 'voice')
-                array.push({ID: id, name:chan.name})
+            if (chan.type == 'voice')
+                array.push({ ID: id, name: chan.name })
         })
 
         return array;
@@ -32,7 +54,12 @@ exports.Utility = {
 }
 
 exports.Check = {
-    isInVoiceChannel(me) { return me.voice.channel ? true : false }
+    isInVoiceChannel(me) { return me.voice.channel ? true : false },
+    canConnect(me) { return me.hasPermission(connectChannel) ? true : false },
+    canSpeak(me) { return me.hasPermission(speak) ? true : false },
+    canViewChannel(me) { return me.hasPermission(viewChannel) ? true : false },
+    canSendMsg(me) { return me.hasPermission(sendMsg) ? true : false },
+    canMoveMembers(me) { return me.hasPermission(moveMembers) ? true : false },
 }
 
 exports.Reply = {

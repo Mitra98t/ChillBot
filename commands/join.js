@@ -1,11 +1,11 @@
+const { PartialGroupDMChannel } = require('discord.js');
 const Util = require('../utility')
 module.exports = {
     name: 'join',
     description: 'I am coming',
     execute(msg, args, discord) {
         if(Util.Check.isInVoiceChannel(msg.guild.me)){
-            msg.channel.send(Util.Reply.errorEmbed('Sono già in uso!', 'Sto già riproducendo qualcosa!\nMi servono i miei spazi...'));
-            return null
+            return msg.channel.send(Util.Reply.errorEmbed('Sono già in uso!', 'Sto già riproducendo qualcosa!\nMi servono i miei spazi...'));   
         }
         
         let chanToJoin;
