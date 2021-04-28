@@ -1,13 +1,13 @@
-const { PartialGroupDMChannel } = require('discord.js');
 const Util = require('../utility')
+
 module.exports = {
     name: 'join',
     description: 'I am coming',
     execute(msg, args, discord) {
         if(Util.Check.isInVoiceChannel(msg.guild.me)){
-            return msg.channel.send(Util.Reply.errorEmbed('Sono già in uso!', 'Sto già riproducendo qualcosa!\nMi servono i miei spazi...'));   
+            return msg.channel.send(Util.Reply.errorEmbed("I'm already in use", "I'm playing something elsewhere!\nI need my own spaces..."));   
         }
-        
+
         let chanToJoin;
         if(msg.mentions.users.first()){
             // console.log(msg.guild.members.cache.get(msg.mentions.users[0].id))
@@ -18,7 +18,7 @@ module.exports = {
             chanToJoin = msg.member.voice.channel
         }
 
-        if (!chanToJoin) return msg.channel.send(Util.Reply.errorEmbed('Non sei in un canale', 'Non te pozz parlà mo no'))
+        if (!chanToJoin) return msg.channel.send(Util.Reply.errorEmbed('Mmm...', "I can't find you..."))
         chanToJoin.join().then(connection => {
             //Math.floor(Math.random() * (max - min)) + min;
             let usableFiles = Util.Utility.getCurrentFilenames('./files/audio')

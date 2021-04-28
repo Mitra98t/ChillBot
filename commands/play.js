@@ -7,15 +7,14 @@ module.exports = {
     description: 'Youtube music',
     async execute(msg, args, discord){
         if(Util.Check.isInVoiceChannel(msg.guild.me)){
-            msg.channel.send(Util.Reply.errorEmbed('Sono già in uso!', 'Sto già riproducendo qualcosa!\nMi servono i miei spazi...'));
-            return null
+            return msg.channel.send(Util.Reply.errorEmbed("I'm already in use", "I'm playing something elsewhere!\nI need my own spaces...")); 
         }
 
         const voiceChannel = msg.member.voice.channel
-        if (!voiceChannel) return msg.channel.send(Util.Reply.errorEmbed('Non sei in un canale', 'Non te pozz parlà mo no'))
+        if (!voiceChannel) return msg.channel.send(Util.Reply.errorEmbed('Mmm...', "I can't find you..."))
 
         if(args.length <= 0){
-            msg.channel.send(Util.Reply.errorEmbed('Qualcosa non va!', 'Devi includere il link del brano da riprodurre'));
+            msg.channel.send(Util.Reply.errorEmbed("This doesen't seem right!", 'You have to include the link of the song you want to listen to.'));
             return null;
         }
         
@@ -26,13 +25,13 @@ module.exports = {
             try{
                 await videoPlayer(msg, song, voiceChannel, embed)
             } catch(e){
-                msg.channel.send(Util.Reply.errorEmbed('Qualcosa è andato storto!', 'Link incluso non valido'));
+                msg.channel.send(Util.Reply.errorEmbed('Something went wrong!', "The included link isn't valid"));
                 console.log(e)
             }
 
         }
         else{
-            msg.channel.send(Util.Reply.errorEmbed('Qualcosa è andato storto!', 'Link incluso non valido'));
+            msg.channel.send(Util.Reply.errorEmbed('Something went wrong!', "The included link isn't valid"));
             return null;
         }
     }
@@ -41,7 +40,7 @@ module.exports = {
 
 async function videoPlayer(msg, song, channel, embed){
     const stream = ytdl(song.url, { filter: 'audioonly' })
-    msg.channel.send(Util.Reply.sendBaseEmbed('Music', 'Balliamo!', Util.Colors.green).addField('Riproducendo', song.title));
+    msg.channel.send(Util.Reply.sendBaseEmbed('Music', "Let's dance!", Util.Colors.green).addField('Playing', song.title));
 
     channel.join().then(connection => {
         const dispatcher = connection.play(stream);

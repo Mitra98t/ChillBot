@@ -1,8 +1,8 @@
 const fs = require('fs');
 const discord = require('discord.js');
-const { send } = require('process');
 
 /* PERMISSIONS */
+// complete list here https://discord.com/developers/docs/topics/permissions
 const muteMembers = "MUTE_MEMBERS"
 const moveMembers = "MOVE_MEMBERS"
 const viewChannel = "VIEW_CHANNEL"

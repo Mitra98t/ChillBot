@@ -17,7 +17,7 @@ for (file of commandFile) {
 
 //starting
 client.once('ready', () => {
-    console.log('ChillBot è online');
+    console.log('ChillBot is online');
 })
 
 client.on('message', message => {
@@ -39,8 +39,8 @@ client.on('message', message => {
         case ('randommute'):
             client.commands.get('randommute').execute(message, args, discord);
             break;
-        case ('solitudine'):
-            client.commands.get('solitudine').execute(message, args, discord);
+        case ('chaos'):
+            client.commands.get('chaos').execute(message, args, discord);
             break;
         case ('scareme'):
             client.commands.get('scareme').execute(message, args, discord);
