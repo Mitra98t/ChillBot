@@ -33,6 +33,7 @@ client.on('message', message => {
         case ('join'):
             client.commands.get('join').execute(message, args, discord);
             break;
+        case ('leave'):
         case ('stop'):
             client.commands.get('stop').execute(message, args, discord);
             break;
