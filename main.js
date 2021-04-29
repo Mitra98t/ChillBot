@@ -27,6 +27,9 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     switch (command) {
+        case ('help'):
+            client.commands.get('help').execute(message, args, discord);
+            break;
         case ('ping'):
             client.commands.get('ping').execute(message, args, discord);
             break;
