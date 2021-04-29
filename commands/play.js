@@ -23,7 +23,7 @@ module.exports = {
             song = { title: songInfo.videoDetails.title, url: songInfo.videoDetails.video_url }
 
             try{
-                await videoPlayer(msg, song, voiceChannel, embed)
+                await videoPlayer(msg, song, voiceChannel)
             } catch(e){
                 msg.channel.send(Util.Reply.errorEmbed('Something went wrong!', "The included link isn't valid"));
                 console.log(e)
@@ -38,7 +38,7 @@ module.exports = {
 }
 
 
-async function videoPlayer(msg, song, channel, embed){
+async function videoPlayer(msg, song, channel){
     const stream = ytdl(song.url, { filter: 'audioonly' })
     msg.channel.send(Util.Reply.sendBaseEmbed('Music', "Let's dance!", Util.Colors.green).addField('Playing', song.title));
 

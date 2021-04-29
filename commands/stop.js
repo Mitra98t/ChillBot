@@ -1,3 +1,5 @@
+const Util = require('../utility')
+
 module.exports = {
     name: 'stop',
     description: "Ok... I'll stop",
