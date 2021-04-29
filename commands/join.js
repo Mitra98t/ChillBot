@@ -20,11 +20,9 @@ module.exports = {
 
         if (!chanToJoin) return msg.channel.send(Util.Reply.errorEmbed('Mmm...', "I can't find you..."))
         chanToJoin.join().then(connection => {
-            //Math.floor(Math.random() * (max - min)) + min;
-            let usableFiles = Util.Utility.getCurrentFilenames('./files/audio')
-            const dispatcher = connection.play(`./files/audio/${usableFiles[Math.floor(Math.random() * usableFiles.length)]}`);
+            let song = chooseFile(msg, './files/audio', args[0])
+            const dispatcher = connection.play(song);
             dispatcher.on("finish", finish => msg.guild.me.voice.channel.leave());
-            //console.log("Successfully connected.");
         }).catch(e => {
             console.error(e);
         });
@@ -32,3 +30,9 @@ module.exports = {
     }
 }
 
+function chooseFile(msg, path, categ){
+    let dir = path + '/' + (!categ ? "meme" : categ.toLowerCase());
+    let pool = Util.Utility.getCurrentFilenames(dir)
+    let chosenSong = pool[Math.floor(Math.random() * pool.length)]
+    return dir + '/' + chosenSong
+}
