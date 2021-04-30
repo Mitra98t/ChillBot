@@ -10,12 +10,13 @@ const commandFile = fs.readdirSync('./commands').filter(file => file.endsWith('.
 
 
 //INIT
+/* creates the list of usable commands */
 for (file of commandFile) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
 
-//starting
+//STARTIN
 client.once('ready', () => {
     console.log('ChillBot is online');
 })
