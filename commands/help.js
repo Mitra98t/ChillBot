@@ -18,7 +18,7 @@ function baseHelp(embed){
     .setTitle('Helping <3')
     .setDescription('Here you have all commands!\nIf you want more info on one of them just type `_help <command>`')
     .addFields(
-        { name: "chaos", value: "Moves everyone in the channel to random places in the server." },
+        { name: "chaos", value: "Moves everyone in the channel to random places in the server.\n*Admin command*" },
         { name: "play", value: "Use `_play <youtube URL>` to play the audio." },
         { name: "join", value: "Joins the channel you are currently in, make some noise and than leaves.\nIt's possible to specify sound category to reproduce." },
         { name: "scareme", value: "Joins the channel you are currently in, scares you and than leaves." },
