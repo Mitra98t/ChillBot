@@ -44,4 +44,4 @@ Joins the voice channel and plays audio of the youtube URL.
 
 ### Sound Categories
 
-`meme` => Random meme sudio from the meme pool
+`meme` => Random meme audio from the meme pool
