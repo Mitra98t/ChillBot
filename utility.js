@@ -147,5 +147,27 @@ exports.Reply = {
             .setTitle(title)
             .setDescription(description)
         return embed
+    },
+    /**
+     * 
+     * @param {*} title Message Title
+     * @param {*} description? Message Description
+     * @param {*} imageURL URL of the image
+     * @param {*} color Color of the message
+     * @returns embed
+     */
+    sendBaseImage(title, description, imageURL, color) {
+        let hexColorReg = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/gm
+        let col = hexColorReg.test(color) ? color : defColor
+
+        let embed = new discord.MessageEmbed()
+            .setColor(col)
+            .setTitle(title)
+            .setImage(imageURL)
+
+        if(description)
+            embed.setDescription(description)
+
+        return embed
     }
 }
