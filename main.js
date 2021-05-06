@@ -53,6 +53,9 @@ client.on('message', message => {
         case ('play'):
             client.commands.get('play').execute(message, args, discord);
             break;
+        case ('cat'):
+            client.commands.get('cat').execute(message, args, discord);
+            break;
     }
 })
 
