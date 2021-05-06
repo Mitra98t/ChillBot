@@ -17,6 +17,12 @@ module.exports = {
     }
 }
 
+/**
+ * Moves members around
+ * @param {*} msg command msg
+ * @param {*} chatToAbuse channel to target
+ * @param {*} allChannels list of all channel
+ */
 function moveMembers(msg, chatToAbuse, allChannels) {
     chatToAbuse.members.forEach(mem => {
         if (mem != msg.guild.me)
@@ -24,6 +30,13 @@ function moveMembers(msg, chatToAbuse, allChannels) {
     });
 }
 
+/**
+ * Reproduce audio and call moveMembers
+ * @param {*} msg command msg
+ * @param {*} path Audio to play
+ * @param {*} channel channel to target
+ * @param {*} allChannels list of all channel
+ */
 async function makeChaos(msg, path, channel, allChannels) {
     channel.join().then(connection => {
         const dispatcher = connection.play(path)
