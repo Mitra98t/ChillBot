@@ -24,6 +24,7 @@ module.exports = {
             const dispatcher = connection.play(song);
             dispatcher.on("finish", finish => msg.guild.me.voice.channel.leave());
         }).catch(e => {
+            msg.guild.me.voice.channel.leave()
             console.error(e);
         });
 
