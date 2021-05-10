@@ -1,6 +1,7 @@
 require('dotenv').config()
 const TOKEN = process.env['TOKEN']
 const discord = require('discord.js');
+const keepAlive = require('./server');
 const client = new discord.Client();
 const pfx = '_';
 
@@ -60,4 +61,5 @@ client.on('message', message => {
     }
 })
 
+keepAlive();
 client.login(TOKEN);
