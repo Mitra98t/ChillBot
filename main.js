@@ -1,4 +1,5 @@
-const TOKEN = require('./privateInfo.js')
+require('dotenv').config()
+const TOKEN = process.env.TOKEN
 const discord = require('discord.js');
 const client = new discord.Client();
 const pfx = '_';
