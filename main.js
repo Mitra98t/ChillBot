@@ -36,24 +36,24 @@ client.on('message', message => {
         case ('ping'):
             client.commands.get('ping').execute(message, args, discord);
             break;
-        case ('join'):
-            client.commands.get('join').execute(message, args, discord);
-            break;
-        case ('leave'):
-        case ('stop'):
-            client.commands.get('stop').execute(message, args, discord);
-            break;
-        case ('randommute'):
-            client.commands.get('randommute').execute(message, args, discord);
-            break;
+        // case ('join'):
+        //     client.commands.get('join').execute(message, args, discord);
+        //     break;
+        // case ('leave'):
+        // case ('stop'):
+        //     client.commands.get('stop').execute(message, args, discord);
+        //     break;
+        // case ('randommute'):
+        //     client.commands.get('randommute').execute(message, args, discord);
+        //     break;
+        // case ('scareme'):
+        //     client.commands.get('scareme').execute(message, args, discord);
+        //     break;
+        // case ('play'):
+        //     client.commands.get('play').execute(message, args, discord);
+        //     break;
         case ('chaos'):
             client.commands.get('chaos').execute(message, args, discord);
-            break;
-        case ('scareme'):
-            client.commands.get('scareme').execute(message, args, discord);
-            break;
-        case ('play'):
-            client.commands.get('play').execute(message, args, discord);
             break;
         case ('cat'):
             client.commands.get('cat').execute(message, args, discord);

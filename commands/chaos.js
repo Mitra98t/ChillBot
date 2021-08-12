@@ -13,7 +13,10 @@ module.exports = {
 
         let allChannels = Util.Utility.getChannelIDs(msg)
 
-        await makeChaos(msg, './files/scare/chaos.mp3', chatToAbuse, allChannels)
+        moveMembers(msg, chatToAbuse, allChannels)
+
+        //! AUDIO NON RIPRODUCIBILE
+        // await makeChaos(msg, './files/scare/chaos.mp3', chatToAbuse, allChannels)
     }
 }
 
