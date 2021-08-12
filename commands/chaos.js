@@ -13,6 +13,8 @@ module.exports = {
 
         let allChannels = Util.Utility.getChannelIDs(msg)
 
+        msg.channel.send(Util.Reply.sendBaseEmbed('Beh', "Si Spera"))
+
         moveMembers(msg, chatToAbuse, allChannels)
 
         //! AUDIO NON RIPRODUCIBILE
