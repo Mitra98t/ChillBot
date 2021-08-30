@@ -58,6 +58,9 @@ client.on('message', message => {
         case ('cat'):
             client.commands.get('cat').execute(message, args, discord);
             break;
+        case ('d'):
+            client.commands.get('d').execute(message, args, discord);
+            break;
     }
 })
 
