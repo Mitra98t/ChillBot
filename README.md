@@ -42,6 +42,11 @@ Joins the voice channel, scares someone and than leaves.
 `play <youtube URL>`  
 Joins the voice channel and plays audio of the youtube URL.  
 
+`dice <dice type>`
+Roll the specified dice.
+`dice c <dice type>` or `dice custom <dice type>` to roll a custom dice eg: `dice c 34`
+Alias: `d`
+
 ### Sound Categories
 
 `meme` => Random meme audio from the meme pool
